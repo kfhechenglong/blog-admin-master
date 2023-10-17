@@ -83,4 +83,4 @@ npm run build
 
  创作不易，你的赞赏和认可是持续更新的动力~
 
-<img src="./src/assets/images/donate.jpeg" alt="赞赏" width="200px" />
+<img src="./src/assets/images/donate.jpg" alt="赞赏" width="200px" />
