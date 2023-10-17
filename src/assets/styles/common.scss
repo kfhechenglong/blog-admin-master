@@ -1,0 +1,99 @@
+#app {
+    min-height: 100vh;
+}
+
+
+/* 以后pre标签里面的内容自动换行 */
+
+pre {
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+
+}
+
+
+/* 编辑页面:富文本编辑器跟分类下拉框的z-index有冲突，需要用下拉框的z-index覆盖富文本的z-index */
+
+.select-zindex {
+    z-index: 2000 !important;
+}
+
+
+/* 富文本编辑器跟loading的z-index有冲突 */
+
+.el-loading-mask {
+    z-index: 3000 !important;
+}
+
+
+/* message 的z-index不够，会显示在编辑器下面 */
+
+.el-message {
+    z-index: 2000 !important;
+}
+
+
+/* 改变编辑器默认300px的高度 */
+
+.w-e-text {
+    min-height: 500px !important;
+}
+
+.w-e-text-container {
+    /* 覆盖编辑器原本堆叠层级 */
+    z-index: 10 !important;
+    min-height: 500px !important;
+}
+
+#app pre code {
+    border-radius: 5px;
+    padding: 10px;
+    color: #333;
+    background-color: #f8f8f8 !important
+}
+
+
+/* 设置编辑器段落间距 */
+.w-e-text p {
+    margin-bottom: 20px !important;
+    margin-top: 10px !important;
+}
+
+.pagination-box {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px
+}
+
+.select-by-cate {
+    display: flex;
+    justify-content: space-between;
+
+    .pdding {
+        margin-right: 20px;
+    }
+}
+
+// 重置弹窗样式
+.el-dialog__header {
+    border-bottom: 1px solid #ddd;
+    margin-right: 0;
+    padding-bottom: 10px;
+    padding-top: 10px;
+
+    .el-dialog__title {
+        font-size: 16px;
+    }
+
+    .el-dialog__headerbtn {
+        top: 2px;
+        height: 45px;
+    }
+}
+
+.primary-active-color {
+    color: #056de8;
+}
