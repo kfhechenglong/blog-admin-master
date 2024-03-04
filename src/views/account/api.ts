@@ -1,5 +1,5 @@
-import { post, get } from "@/utils/axios";
-import contextPath from "@/utils/context-path";
+import { post, get } from '@/utils/axios';
+import contextPath from '@/utils/context-path';
 
 // 登录
 export async function loginApi(data: Object) {

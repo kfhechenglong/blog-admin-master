@@ -15,38 +15,44 @@
       </div>
       <div class="login-container">
         <div class="toReg">
-          <h2>注册</h2>
-          <div>已有账号？<a href="/#/login" class="toRegTxt">去登录</a></div>
+          <h2>登录</h2>
+          <div>没有账号？<a href="/#/reg" class="toRegTxt">去注册</a></div>
         </div>
-        <el-form size="default" :model="regform" :rules="rules" ref="formref" label-position="left">
-          <el-form-item prop="username">
+        <el-form
+          size="default"
+          :model="form"
+          :rules="loginRules"
+          ref="formref"
+          label-position="left"
+        >
+          <el-form-item label="" prop="username">
             <el-input
               @focus="shadow"
               @blur="hideShadow"
-              v-model="regform.username"
+              :prefix-icon="User"
+              v-model="form.username"
               placeholder="请输入账号"
-            ></el-input>
+            >
+            </el-input>
           </el-form-item>
-          <el-form-item prop="password">
+          <el-form-item label="" prop="password">
             <el-input
               @focus="shadow"
               @blur="hideShadow"
-              v-model="regform.password"
+              :prefix-icon="Lock"
+              v-model="form.password"
               type="password"
               placeholder="请输入密码"
-            ></el-input>
-          </el-form-item>
-          <el-form-item prop="email">
-            <el-input
-              @focus="shadow"
-              @blur="hideShadow"
-              v-model="regform.email"
-              type="text"
-              placeholder="请输入正确邮箱,方便找回密码"
+              @keyup.enter="login"
             ></el-input>
           </el-form-item>
           <el-form-item>
-            <el-button style="width: 100%" @click="valid" type="primary">立即注册</el-button>
+            <el-button @click="login" type="primary" style="width: 100%">登录</el-button>
+          </el-form-item>
+          <el-form-item>
+            <div class="login-operate">
+              <span><a href="/#/resetPwd" class="toRegTxt">已有账号，忘记密码</a></span>
+            </div>
           </el-form-item>
         </el-form>
       </div>
@@ -54,87 +60,47 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-  import { registerApi } from '@/views/account/api';
-  import { ref, reactive } from 'vue';
-  import { ElMessage } from 'element-plus';
+<script setup lang="ts">
+  import { reactive, ref } from 'vue';
   import { useRouter } from 'vue-router';
-
-  const router = useRouter();
-
+  import { loginApi } from '@/views/account/api';
+  import { User, Lock } from '@element-plus/icons-vue';
   const form = reactive({
     username: '',
     password: ''
   });
   const showShadow = ref(false);
-  const regform = reactive({
-    username: '',
-    password: '',
-    email: ''
-  });
-  const rules = reactive({
-    username: [
-      { required: true, message: '请输入用户名', trigger: 'change' },
-      {
-        min: 4,
-        max: 20,
-        message: '长度在 4 到 20 个字符',
-        trigger: 'blur'
-      }
-    ],
-    password: [
-      { required: true, message: '请输入密码', trigger: 'change' },
-      {
-        min: 4,
-        max: 20,
-        message: '长度在 4 到 20 个字符',
-        trigger: 'blur'
-      }
-    ],
-    email: [
-      { required: true, message: '请输入邮箱', trigger: 'change' },
-      {
-        type: 'email',
-        message: '请输入正确的邮箱地址',
-        trigger: ['blur', 'change']
-      }
-    ]
-  });
-
   const shadow = () => {
     showShadow.value = true;
   };
-
   const hideShadow = () => {
     showShadow.value = false;
   };
+  const loginRules = reactive({
+    username: [{ required: true, message: '请输入用户名', trigger: 'change' }],
+    password: [{ required: true, message: '请输入密码', trigger: 'change' }]
+  });
+  const router = useRouter();
 
-  const register = async () => {
-    if (!regform.username || !regform.password) {
-      ElMessage.error('请输入账号和密码');
-      return;
-    }
-    const res = await registerApi(regform);
-    if (res) {
-      ElMessage.success('注册成功，即将跳转到登录页面');
-      setTimeout(() => {
-        localStorage.clear();
-        router.push({ path: '/login' });
-      }, 3000);
-    }
-  };
+  // 获取refs
   const formref = ref();
-  const valid = async () => {
-    const boolRes = await formref.value.validate();
-    boolRes && register();
+  const login = async function () {
+    // const valid = await formref.value.validate();
+    // if (!valid) {
+    //   return;
+    // }
+    // const res: any = await loginApi(form).then((res: any) => {
+    //   localStorage.setItem('userInfo', JSON.stringify(res.data));
+    //   router.push({ path: '/home' });
+    // });
+    router.push({ path: '/home' });
   };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
+<style lang="scss" scoped>
   .login {
-    // background: url("../../assets/images/bg.jpg") no-repeat;
     background: url('../../assets/images/bg.svg') no-repeat;
+    // background: url("../../assets/images/bg.jpg") no-repeat;
     background-size: cover;
     min-height: 100vh;
 
@@ -145,12 +111,6 @@
       justify-content: center;
       align-items: center;
 
-      .toReg {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 20px;
-        align-items: center;
-      }
       .left-pic {
         display: flex;
         justify-content: space-around;
@@ -170,8 +130,14 @@
           align-items: center;
           justify-content: flex-start;
           font-size: 1rem;
+
           .logo {
             font-size: 1rem;
+            // border: 1px solid #fff;
+            // border-radius: 50%;
+            padding: 5px;
+            // margin-right: 10px;
+            display: inline-block;
             background: url('@/assets/images/logo_white.png') no-repeat;
             width: 80px;
             height: 40px;
@@ -189,7 +155,7 @@
       }
 
       .login-container {
-        border-radius: 3px;
+        box-sizing: border-box;
         width: 380px;
         margin-top: 0;
         background: rgba(255, 255, 255, 1);
@@ -208,21 +174,30 @@
         //   }
 
         // }
+        .toReg {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 20px;
+          align-items: center;
+        }
+
         .reg {
           cursor: pointer;
           font-size: 12px;
           text-decoration: underline;
         }
+
+        .login-operate {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+        }
       }
     }
 
     .shadow {
-      background: rgba(0, 0, 0, 0.6);
-      transition: all 0.5s;
-    }
-
-    .toLogin {
-      color: #409eff;
+      background: rgba(0, 0, 0, 0.5);
+      transition: all 0.8s;
     }
 
     .toRegTxt {

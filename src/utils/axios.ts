@@ -1,5 +1,5 @@
-import axios from "axios";
-import { ElLoading, ElMessage } from "element-plus";
+import axios from 'axios';
+import { ElLoading, ElMessage } from 'element-plus';
 
 let needLoadingRequestCount = 0;
 let loading: any = null;
@@ -7,8 +7,8 @@ let loading: any = null;
 function startLoading() {
   loading = ElLoading.service({
     lock: true,
-    text: "加载中……",
-    background: "rgba(0, 0, 0, 0.1)",
+    text: '加载中……',
+    background: 'rgba(0, 0, 0, 0.1)'
   });
 }
 
@@ -17,7 +17,7 @@ function endLoading() {
 }
 
 axios.defaults.timeout = 600000;
-axios.defaults.headers.post["Content-Type"] = "application/json";
+axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 export function showFullScreenLoading() {
   if (needLoadingRequestCount === 0) {
@@ -38,7 +38,7 @@ export function tryHideFullScreenLoading() {
 // 添加请求拦截器
 axios.interceptors.request.use(
   function (config: any) {
-    let userinfo: any = localStorage.getItem("userInfo");
+    let userinfo: any = localStorage.getItem('userInfo');
     if (userinfo) {
       userinfo = JSON.parse(userinfo);
       config.headers.common.Authorization = userinfo.token;
@@ -80,15 +80,15 @@ export function get(url: any, params: any, options: any) {
   }
   return new Promise((resolve, reject) => {
     axios({
-      method: "get",
+      method: 'get',
       url: url, // 在使用别名方法时， url、method、data 这些属性都不必在配置中指定。
       // url: url + "?t=" + new Date().getTime(), // 在使用别名方法时， url、method、data 这些属性都不必在配置中指定。
-      params: params, // params是要与请求一起发送的URL参数
+      params: params // params是要与请求一起发送的URL参数
     })
       .then((res) => {
         handleData(res, resolve, reject);
       })
-      .catch(() => console.log("promise catch err")); // 捕获异常
+      .catch(() => console.log('promise catch err')); // 捕获异常
   });
 }
 
@@ -99,14 +99,14 @@ export function post(url: any, param: any, options: any) {
   }
   return new Promise((resolve, reject) => {
     axios({
-      method: "post",
+      method: 'post',
       url: url,
-      data: param, // data是要作为请求主体发送的数据,仅适用于请求方法“PUT”，“POST”和“PATCH”
+      data: param // data是要作为请求主体发送的数据,仅适用于请求方法“PUT”，“POST”和“PATCH”
     })
       .then((res) => {
         handleData(res, resolve, reject);
       })
-      .catch(() => console.log("promise catch err")); // 捕获异常
+      .catch(() => console.log('promise catch err')); // 捕获异常
   });
 }
 
@@ -120,23 +120,23 @@ function handleData(res: any, resolve: any, reject: any) {
   }
 }
 function handleAuthenticated(res: any) {
-  let ErrorMsg = "";
+  let ErrorMsg = '';
   switch (res.response.status) {
     case 401:
     case 403:
-      setTimeout(() => {
-        location.href = "/#/login";
-      }, 200);
-      ErrorMsg = "用户信息已失效，请重新登录";
-      localStorage.clear();
+      // setTimeout(() => {
+      //   location.href = "/#/login";
+      // }, 200);
+      // ErrorMsg = "用户信息已失效，请重新登录";
+      // localStorage.clear();
       break;
     case 500:
-      ErrorMsg = res.response.data.message || "网络错误,请稍后再试";
+      ErrorMsg = res.response.data.message || '网络错误,请稍后再试';
       break;
     default:
-      ErrorMsg = "网络错误,请稍后再试";
+      ErrorMsg = '网络错误,请稍后再试';
   }
-  const existMsgError = document.querySelector(".el-message--error");
+  const existMsgError = document.querySelector('.el-message--error');
   if (!existMsgError) {
     // 如果之前不存在错误提示才显示，存在则不显示，避免同时出现多个提示
     ElMessage.error(ErrorMsg);
