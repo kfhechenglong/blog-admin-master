@@ -1,5 +1,5 @@
-import { get, post } from "@/utils/axios.js";
-import contextPath from "@/utils/context-path.js";
+import { get, post } from '@/utils/axios.js';
+import contextPath from '@/utils/context-path.js';
 
 // 查询导航列表
 export async function getListApi(data: Object) {
@@ -11,7 +11,7 @@ export async function getListApi(data: Object) {
 export async function getDetailApi(data: Object) {
   const Url = `${contextPath}/nav/getDetail`;
   const options = {};
-  return get(Url, data, options);
+  return post(Url, data, options);
 }
 // 新增导航
 export async function postPageApi(data: Object) {
@@ -53,5 +53,5 @@ export async function insertNavCateApi(data: any) {
 export async function getNavCateApi(data: any) {
   const url = `${contextPath}/nav/getCate`;
   const options = {};
-  return get(url, data, options);
+  return post(url, data, options);
 }

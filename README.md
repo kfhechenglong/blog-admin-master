@@ -4,10 +4,10 @@
 <h5 align="center">基于vue3.0 + element-plus + typeScript开发的博客后台管理系统</h5>
 
 
-<p align="center" style="padding:10px">
-	<a href="https://gitee.com/kfhechenglong/blog-admin-master.git"><img src="https://gitee.com/kfhechenglong/blog-admin-master/badge/star.svg?theme=dark"></a>
-	<a href="https://gitee.com/kfhechenglong/blog-admin-master.git"><img src="https://gitee.com/kfhechenglong/blog-admin-master/badge/fork.svg?theme=dark"></a>
-</p>
+<!-- <p align="center" style="padding:10px">
+	<a href="https://github/kfhechenglong/blog-admin-master.git"><img src="https://github/kfhechenglong/blog-admin-master/badge/star.svg?theme=dark"></a>
+	<a href="https://github/kfhechenglong/blog-admin-master.git"><img src="https://github/kfhechenglong/blog-admin-master/badge/fork.svg?theme=dark"></a>
+</p> -->
 
 
 ### 项目介绍
@@ -68,7 +68,7 @@
 ``` bash
 
 #下载代码
-gitee: git clone https://gitee.com/kfhechenglong/blog-admin-master.git
+gitee: git clone https://github/kfhechenglong/blog-admin-master.git
 # 安装依赖
 npm install
 # 启动应用 

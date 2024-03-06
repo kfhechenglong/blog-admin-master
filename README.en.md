@@ -6,8 +6,8 @@
 
 
 <p align="center" style="padding:10px">
-	<a href="https://gitee.com/kfhechenglong/blog-admin-master.git"><img src="https://gitee.com/wilkwo/vueAdmin/badge/star.svg?theme=dark"></a>
-	<a href="https://gitee.com/kfhechenglong/blog-admin-master.git"><img src="https://gitee.com/wilkwo/vueAdmin/badge/fork.svg?theme=dark"></a>
+	<a href="https://github/kfhechenglong/blog-admin-master.git"><img src="https://github/wilkwo/vueAdmin/badge/star.svg?theme=dark"></a>
+	<a href="https://github/kfhechenglong/blog-admin-master.git"><img src="https://github/wilkwo/vueAdmin/badge/fork.svg?theme=dark"></a>
 </p>
 
 
@@ -44,11 +44,6 @@
 ### Experience address
 
 
-- Address: http://admin.dsiab.com
-
-- Experience account, password: test / test
-  
-- Add QQ group to communicate together: 514450699
 
 
 
@@ -66,7 +61,7 @@
 ``` bash
 
 #Download the code
-gitee: git clone https://gitee.com/kfhechenglong/blog-admin-master.git
+gitee: git clone https://github/kfhechenglong/blog-admin-master.git
 # Install dependencies
 npm install
 # Launch the app 
