@@ -54,12 +54,6 @@
 
 
 
-### 演示截图
-
-
-<img src="./src/assets/images/screenshot.png" alt="赞赏" width="500px" />
-
-
 
 ### 运行项目
 

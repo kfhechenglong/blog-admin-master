@@ -47,12 +47,6 @@
 
 
 
-### Demo screenshots
-
-
-<img src="./src/assets/images/screenshot.png" alt="赞赏" width="500px" />
-
-
 
 ### Run the project
 
