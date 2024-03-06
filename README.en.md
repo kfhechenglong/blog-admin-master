@@ -65,9 +65,3 @@ npm run build
 
 ```
 
-### Thanks for the appreciation
-
-
-It is not easy to create, and your appreciation and recognition are the driving force for continuous renewal~
-
-<img src="./src/assets/images/donate.jpg" alt="赞赏" width="200px" />
