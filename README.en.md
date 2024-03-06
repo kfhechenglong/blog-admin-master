@@ -6,8 +6,8 @@
 
 
 <p align="center" style="padding:10px">
-	<a href="https://github/kfhechenglong/blog-admin-master.git"><img src="https://github/wilkwo/vueAdmin/badge/star.svg?theme=dark"></a>
-	<a href="https://github/kfhechenglong/blog-admin-master.git"><img src="https://github/wilkwo/vueAdmin/badge/fork.svg?theme=dark"></a>
+	<a href="https://github/kfhechenglong/blog-admin-master.git"><img src="https://img.shields.io/github/stars/kfhechenglong/blog-admin-master"></a>
+	<a href="https://github/kfhechenglong/blog-admin-master.git"><img src="https://img.shields.io/github/forks/kfhechenglong/blog-admin-master"></a>
 </p>
 
 

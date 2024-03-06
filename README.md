@@ -4,10 +4,10 @@
 <h5 align="center">基于vue3.0 + element-plus + typeScript开发的博客后台管理系统</h5>
 
 
-<!-- <p align="center" style="padding:10px">
-	<a href="https://github/kfhechenglong/blog-admin-master.git"><img src="https://github/kfhechenglong/blog-admin-master/badge/star.svg?theme=dark"></a>
-	<a href="https://github/kfhechenglong/blog-admin-master.git"><img src="https://github/kfhechenglong/blog-admin-master/badge/fork.svg?theme=dark"></a>
-</p> -->
+<p align="center" style="padding:10px">
+	<a href="https://github/kfhechenglong/blog-admin-master.git"><img src="https://img.shields.io/github/stars/kfhechenglong/blog-admin-master"></a>
+	<a href="https://github/kfhechenglong/blog-admin-master.git"><img src="https://img.shields.io/github/forks/kfhechenglong/blog-admin-master"></a>
+</p>
 
 
 ### 项目介绍
